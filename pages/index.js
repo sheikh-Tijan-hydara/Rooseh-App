@@ -1,13 +1,14 @@
 import Image from "next/image";
 import logo from "../public/images/logo.png";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Home() {
-
+   const router = useRouter();
   function handleSignUp(e) {
     e.preventDefault();
+    router.push("/home");
     
-    console.log("submit");
   }
   return (
     <div className="w-full h-full">
@@ -19,7 +20,7 @@ export default function Home() {
           <h2 className=" font-bold text-3xl md:text-6xl mb-2 md:mb-8">Sign Up</h2>
           <p className="text-lg md:text-2xl">Sign up For Your Optimal Irrigation Scheduling</p>
 
-          <form className="md:px-8 px-2 md:my-8 my-2">
+          <form className="md:px-8 px-2 md:my-8 my-2" onSubmit={handleSignUp}>
             <div>
               <label className="block text-left">Name</label>
               <input
